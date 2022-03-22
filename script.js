@@ -16,8 +16,8 @@ function newQuote() {
 }
 // Get Quotes From API
 async function getQuotes() {
-    //const apiUrl = 'https://type.fit/api/quotes';
-    const apiUrl = 'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback';
+    const apiUrl = 'https://type.fit/api/quotes';
+    //const apiUrl = 'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback';
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
