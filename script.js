@@ -10,9 +10,10 @@ let apiQuotes = [];
 function newQuote() {
     //Pick A Random Quote From API Quote Array
     // change apiQuotes to localQuotes to use local API
-    const quote = apiQuotes [Math.floor(Math.random() * apiQuotes.length)];
-    authorText.textContent = quote.author;
-    quoteText.textContent = quote.text;
+    const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
+    console.log(quote);
+    //authorText.textContent = quote.author;
+    //quoteText.textContent = quote.text;
 }
 // Get Quotes From API
 async function getQuotes() {
@@ -22,6 +23,7 @@ async function getQuotes() {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
         newQuote();
+        //console.log(apiQuotes[1600]);
     } catch (error) {
         // Catch Error Here
     }
