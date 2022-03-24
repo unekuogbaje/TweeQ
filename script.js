@@ -8,28 +8,30 @@ let apiQuotes = [];
 
 // Show New Quote
 function newQuote() {
-    //Pick A Random Quote From API Quote Array
-    // change apiQuotes to localQuotes to use local API
+    //Pick a random quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
-    console.log(quote);
-    //authorText.textContent = quote.author;
-    //quoteText.textContent = quote.text;
+    console.log (quote);
+    console.log (authorText);
+    authorText.textContent = quote.author;
+    
+    quoteText.textContent = quote.text;
+    
 }
+
 // Get Quotes From API
 async function getQuotes() {
     const apiUrl = 'https://type.fit/api/quotes';
-    //const apiUrl = 'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback';
+    
+
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
         newQuote();
-        //console.log(apiQuotes[1600]);
     } catch (error) {
         // Catch Error Here
+        console.log(error);
     }
 }
 
 //On Load
 getQuotes();
-
-// newQuote (); for localQuotes
